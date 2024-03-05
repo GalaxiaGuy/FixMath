@@ -1,10 +1,8 @@
-using System.Numerics;
-using System.Security.Cryptography;
 using GamesWithGravitas.FixMath;
 
 namespace Tests;
 
-public class IntegerTests
+public class IsIntegerTests
 {
     [Theory]
     [MemberData(nameof(IntegerData.Singles), MemberType = typeof(IntegerData))]
@@ -34,7 +32,7 @@ public class IntegerTests
     public void IsEvenInteger_WithInteger_ShouldReturnCorrectValue(int input)
     {
         var value = F64.FromInt(input);
-        var expected = double.IsEvenInteger(input);
+        var expected = int.IsEvenInteger(input);
         
         var result = F64.IsEvenInteger(value);
         
@@ -57,7 +55,7 @@ public class IntegerTests
     public void IsOddInteger_WithInteger_ShouldReturnCorrectValue(int input)
     {
         var value = F64.FromInt(input);
-        var expected = double.IsOddInteger(input);
+        var expected = int.IsOddInteger(input);
         
         var result = F64.IsOddInteger(value);
         

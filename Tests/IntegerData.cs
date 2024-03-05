@@ -5,13 +5,19 @@ public static class IntegerData
     private static IEnumerable<int> Raw()
     {
         yield return 0;
-        for (int i = 1; i < 10; i++)
+        for (int i = 1; i < 5; i++)
         {
             yield return i;
             yield return -1;
             yield return 100 * i;
             yield return 100 * i + 1;
         }
+
+        yield return 64;
+        yield return -64;
+
+        yield return int.MinValue;
+        yield return int.MaxValue;
     }
     public static IEnumerable<object[]> Singles()
     {

@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace GamesWithGravitas.FixMath;
 
@@ -50,6 +51,7 @@ public partial struct F64 : INumber<F64>
 
     static bool INumberBase<F64>.IsComplexNumber(F64 value) => false;
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsEvenInteger(F64 value)
     {
         return (value.Raw & 0x0000_0001_FFFF_FFFF) == 0;
@@ -61,6 +63,7 @@ public partial struct F64 : INumber<F64>
 
     static bool INumberBase<F64>.IsInfinity(F64 value) => false;
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsInteger(F64 value)
     {
         return (value.Raw & 0x0000_0000_FFFF_FFFF) == 0;
@@ -74,6 +77,7 @@ public partial struct F64 : INumber<F64>
 
     static bool INumberBase<F64>.IsNormal(F64 value) => true;
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static bool IsOddInteger(F64 value)
     {
         return (value.Raw & 0x0000_0001_FFFF_FFFF) == 0x0000_0001_0000_0000;
