@@ -58,7 +58,10 @@ public partial struct F64 : INumber<F64>
 
     static bool INumberBase<F64>.IsInfinity(F64 value) => false;
 
-    static bool INumberBase<F64>.IsInteger(F64 value) => throw new NotImplementedException();
+    public static bool IsInteger(F64 value)
+    {
+        return (value.Raw & 0x0000_0000_FFFF_FFFF) == 0;
+    }
 
     static bool INumberBase<F64>.IsNaN(F64 value) => false;
 

@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FixMath", "FixMath\FixMath.csproj", "{F8211FF4-7D2C-49A6-843F-58B1E4361BF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{9C1487BA-2B3F-4FA6-A5B9-F7052CB0C165}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{F8211FF4-7D2C-49A6-843F-58B1E4361BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8211FF4-7D2C-49A6-843F-58B1E4361BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8211FF4-7D2C-49A6-843F-58B1E4361BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1487BA-2B3F-4FA6-A5B9-F7052CB0C165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1487BA-2B3F-4FA6-A5B9-F7052CB0C165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1487BA-2B3F-4FA6-A5B9-F7052CB0C165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1487BA-2B3F-4FA6-A5B9-F7052CB0C165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
