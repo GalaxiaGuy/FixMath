@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
@@ -28,9 +27,6 @@ namespace GamesWithGravitas.FixMath;
 
 public partial struct F64 : INumber<F64>
 {
-    public static F64 AdditiveIdentity => Zero;
-    public static F64 MultiplicativeIdentity => One;
-    
     string IFormattable.ToString(string? format, IFormatProvider? formatProvider)
     {
         return Double.ToString(format, formatProvider);
