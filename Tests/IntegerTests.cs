@@ -23,7 +23,54 @@ public class IntegerTests
     {
         var value = F64.FromDouble(input);
         var expected = double.IsInteger(input);
+        
         var result = F64.IsInteger(value);
+        
+        Assert.Equal(expected, result);
+    }
+    
+    [Theory]
+    [MemberData(nameof(IntegerData.Singles), MemberType = typeof(IntegerData))]
+    public void IsEvenInteger_WithInteger_ShouldReturnCorrectValue(int input)
+    {
+        var value = F64.FromInt(input);
+        var expected = double.IsEvenInteger(input);
+        
+        var result = F64.IsEvenInteger(value);
+        
+        Assert.Equal(expected, result);
+    }
+    
+    [Theory]
+    [MemberData(nameof(DoubleData.Singles), MemberType = typeof(DoubleData))]
+    public void IsEvenInteger_WithDouble_ShouldReturnCorrectValue(double input)
+    {
+        var value = F64.FromDouble(input);
+        var expected = double.IsEvenInteger(input);
+        var result = F64.IsEvenInteger(value);
+        
+        Assert.Equal(expected, result);
+    }
+    
+    [Theory]
+    [MemberData(nameof(IntegerData.Singles), MemberType = typeof(IntegerData))]
+    public void IsOddInteger_WithInteger_ShouldReturnCorrectValue(int input)
+    {
+        var value = F64.FromInt(input);
+        var expected = double.IsOddInteger(input);
+        
+        var result = F64.IsOddInteger(value);
+        
+        Assert.Equal(expected, result);
+    }
+    
+    [Theory]
+    [MemberData(nameof(DoubleData.Singles), MemberType = typeof(DoubleData))]
+    public void IsOddInteger_WithDouble_ShouldReturnCorrectValue(double input)
+    {
+        var value = F64.FromDouble(input);
+        var expected = double.IsOddInteger(input);
+        var result = F64.IsOddInteger(value);
         
         Assert.Equal(expected, result);
     }

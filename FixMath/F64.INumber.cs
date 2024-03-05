@@ -50,7 +50,10 @@ public partial struct F64 : INumber<F64>
 
     static bool INumberBase<F64>.IsComplexNumber(F64 value) => false;
 
-    static bool INumberBase<F64>.IsEvenInteger(F64 value) => throw new NotImplementedException();
+    public static bool IsEvenInteger(F64 value)
+    {
+        return (value.Raw & 0x0000_0001_FFFF_FFFF) == 0;
+    }
 
     static bool INumberBase<F64>.IsFinite(F64 value) => true;
 
@@ -71,7 +74,10 @@ public partial struct F64 : INumber<F64>
 
     static bool INumberBase<F64>.IsNormal(F64 value) => true;
 
-    static bool INumberBase<F64>.IsOddInteger(F64 value) => throw new NotImplementedException();
+    public static bool IsOddInteger(F64 value)
+    {
+        return (value.Raw & 0x0000_0001_FFFF_FFFF) == 0x0000_0001_0000_0000;
+    }
 
     static bool INumberBase<F64>.IsPositive(F64 value) => value.Raw > 0;
 
