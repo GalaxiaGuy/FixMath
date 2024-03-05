@@ -209,7 +209,7 @@ namespace GamesWithGravitas.FixMath
             return (Raw == other.Raw);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (!(obj is F64))
                 return false;
@@ -233,7 +233,7 @@ namespace GamesWithGravitas.FixMath
             return Raw.GetHashCode();
         }
 
-        int IComparable.CompareTo(object obj)
+        int IComparable.CompareTo(object? obj)
         {
             if (obj is F64 other)
                 return CompareTo(other);

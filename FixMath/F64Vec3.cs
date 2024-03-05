@@ -202,7 +202,7 @@ namespace GamesWithGravitas.FixMath
             return (this == other);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (!(obj is F64Vec3))
                 return false;

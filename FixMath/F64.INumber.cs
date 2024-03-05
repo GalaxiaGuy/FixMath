@@ -20,6 +20,7 @@
 // SOFTWARE.
 //
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Numerics;
 
@@ -30,34 +31,34 @@ public partial struct F64 : INumber<F64>
     public static F64 AdditiveIdentity => Zero;
     public static F64 MultiplicativeIdentity => One;
     
-    string IFormattable.ToString(string format, IFormatProvider formatProvider)
+    string IFormattable.ToString(string? format, IFormatProvider? formatProvider)
     {
         return Double.ToString(format, formatProvider);
     }
 
-    bool ISpanFormattable.TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider provider)
+    bool ISpanFormattable.TryFormat(Span<char> destination, out int charsWritten, ReadOnlySpan<char> format, IFormatProvider? provider)
     {
         return Double.TryFormat(destination, out charsWritten, format, provider);
     }
 
-    static F64 IParsable<F64>.Parse(string s, IFormatProvider provider)
+    static F64 IParsable<F64>.Parse(string s, IFormatProvider? provider)
     {
         return FromDouble(double.Parse(s, provider));
     }
 
-    static bool IParsable<F64>.TryParse(string s, IFormatProvider provider, out F64 result)
+    static bool IParsable<F64>.TryParse(string? s, IFormatProvider? provider, out F64 result)
     {
         var success = double.TryParse(s, provider, out var doubleResult);
         result = FromDouble(doubleResult);
         return success;
     }
 
-    static F64 ISpanParsable<F64>.Parse(ReadOnlySpan<char> s, IFormatProvider provider)
+    static F64 ISpanParsable<F64>.Parse(ReadOnlySpan<char> s, IFormatProvider? provider)
     {
         return FromDouble(double.Parse(s, provider));
     }
 
-    static bool ISpanParsable<F64>.TryParse(ReadOnlySpan<char> s, IFormatProvider provider, out F64 result)
+    static bool ISpanParsable<F64>.TryParse(ReadOnlySpan<char> s, IFormatProvider? provider, out F64 result)
     {
         var success = double.TryParse(s, provider, out var doubleResult);
         result = FromDouble(doubleResult);
@@ -112,12 +113,12 @@ public partial struct F64 : INumber<F64>
 
     static F64 INumberBase<F64>.MinMagnitudeNumber(F64 x, F64 y) => Min(Abs(x), Abs(y));
 
-    static F64 INumberBase<F64>.Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider provider)
+    static F64 INumberBase<F64>.Parse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider)
     {
         return FromDouble(double.Parse(s, style, provider));
     }
 
-    static F64 INumberBase<F64>.Parse(string s, NumberStyles style, IFormatProvider provider)
+    static F64 INumberBase<F64>.Parse(string s, NumberStyles style, IFormatProvider? provider)
     {
         return FromDouble(double.Parse(s, style, provider));
     }
@@ -126,22 +127,22 @@ public partial struct F64 : INumber<F64>
     {
         if (typeof(TOther) == typeof(double))
         {
-            result = FromDouble((double)(object)value);
+            result = FromDouble((double)(object)value!);
             return true;
         }
         else if (typeof(TOther) == typeof(float))
         {
-            result = FromFloat((float)(object)value);
+            result = FromFloat((float)(object)value!);
             return true;
         }
         else if (typeof(TOther) == typeof(int))
         {
-            result = FromInt((int)(object)value);
+            result = FromInt((int)(object)value!);
             return true;
         }
         else if (typeof(TOther) == typeof(F32))
         {
-            result = FromF32((F32)(object)value);
+            result = FromF32((F32)(object)value!);
             return true;
         }
         else
@@ -151,7 +152,7 @@ public partial struct F64 : INumber<F64>
         }
     }
     
-    private static bool TryConvertTo<TOther>(F64 value, out TOther result)
+    private static bool TryConvertTo<TOther>(F64 value, [MaybeNullWhen(false)] out TOther result)
     {
         if (typeof(TOther) == typeof(double))
         {
@@ -195,29 +196,29 @@ public partial struct F64 : INumber<F64>
         return TryConvertFrom(value, out result);
     }
 
-    static bool INumberBase<F64>.TryConvertToChecked<TOther>(F64 value, out TOther result)
+    static bool INumberBase<F64>.TryConvertToChecked<TOther>(F64 value, [MaybeNullWhen(false)] out TOther result)
     {
         return TryConvertTo(value, out result);
     }
 
-    static bool INumberBase<F64>.TryConvertToSaturating<TOther>(F64 value, out TOther result)
+    static bool INumberBase<F64>.TryConvertToSaturating<TOther>(F64 value, [MaybeNullWhen(false)] out TOther result)
     {
         return TryConvertTo(value, out result);
     }
 
-    static bool INumberBase<F64>.TryConvertToTruncating<TOther>(F64 value, out TOther result)
+    static bool INumberBase<F64>.TryConvertToTruncating<TOther>(F64 value, [MaybeNullWhen(false)] out TOther result)
     {
         return TryConvertTo(value, out result);
     }
 
-    static bool INumberBase<F64>.TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider provider, out F64 result)
+    static bool INumberBase<F64>.TryParse(ReadOnlySpan<char> s, NumberStyles style, IFormatProvider? provider, out F64 result)
     {
         var success = double.TryParse(s, style, provider, out var doubleResult);
         result = FromDouble(doubleResult);
         return success;
     }
 
-    static bool INumberBase<F64>.TryParse(string s, NumberStyles style, IFormatProvider provider, out F64 result)
+    static bool INumberBase<F64>.TryParse(string? s, NumberStyles style, IFormatProvider? provider, out F64 result)
     {
         var success = double.TryParse(s, style, provider, out var doubleResult);
         result = FromDouble(doubleResult);

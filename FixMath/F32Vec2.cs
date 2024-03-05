@@ -180,11 +180,11 @@ namespace GamesWithGravitas.FixMath
             return (this == other);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (!(obj is F32Vec2))
+            if (!(obj is F32Vec2 vec2))
                 return false;
-            return ((F32Vec2)obj) == this;
+            return vec2 == this;
         }
 
         public override string ToString()

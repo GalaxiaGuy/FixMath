@@ -196,7 +196,7 @@ namespace GamesWithGravitas.FixMath
             return (Raw == other.Raw);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (!(obj is F32))
                 return false;
@@ -220,7 +220,7 @@ namespace GamesWithGravitas.FixMath
             return Raw;
         }
 
-        int IComparable.CompareTo(object obj)
+        int IComparable.CompareTo(object? obj)
         {
             if (obj is F32 other)
                 return CompareTo(other);
