@@ -2,16 +2,16 @@ using GamesWithGravitas.FixMath;
 
 namespace Tests;
 
-public class BinaryNumberTests
+public abstract class BinaryNumberTests<T> where T : IFx<T>
 {
     [Theory]
     [MemberData(nameof(IntegerData.Singles), MemberType = typeof(IntegerData))]
     public void IsPow2_WithInteger_ShouldReturnCorrectValue(int input)
     {
-        var value = F64.FromInt(input);
+        var value = T.FromInt(input);
         var expected = int.IsPow2(input);
         
-        var result = F64.IsPow2(value);
+        var result = T.IsPow2(value);
         
         Assert.Equal(expected, result);
     }
@@ -20,10 +20,12 @@ public class BinaryNumberTests
     [MemberData(nameof(DoubleData.Singles), MemberType = typeof(DoubleData))]
     public void IsPow2_WithDouble_ShouldReturnCorrectValue(double input)
     {
-        var value = F64.FromDouble(input);
+        var value = T.FromDouble(input);
         var expected = double.IsPow2(input);
-        var result = F64.IsPow2(value);
+        var result = T.IsPow2(value);
         
         Assert.Equal(expected, result);
     }    
 }
+
+public class F64BinaryNumberTests : BinaryNumberTests<F64> { }
