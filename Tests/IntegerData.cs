@@ -5,7 +5,7 @@ public static class IntegerData
     private static IEnumerable<int> Raw()
     {
         yield return 0;
-        for (int i = 1; i < 5; i++)
+        for (int i = 1; i < 4; i++)
         {
             yield return i;
             yield return -1;

@@ -14,6 +14,6 @@ public partial struct F32 : IBinaryNumber<F32>
 
     public static bool IsPow2(F32 value)
     {
-        return IsInteger(value) && long.IsPow2(value.Raw >> 32);
+        return IsInteger(value) && long.IsPow2(value.Raw >> 16);
     }
 }

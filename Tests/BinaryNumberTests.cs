@@ -28,4 +28,5 @@ public abstract class BinaryNumberTests<T> where T : IFx<T>
     }    
 }
 
+public class F32BinaryNumberTests : BinaryNumberTests<F32> { }
 public class F64BinaryNumberTests : BinaryNumberTests<F64> { }

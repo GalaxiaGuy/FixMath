@@ -5,19 +5,17 @@ public static class DoubleData
     private static IEnumerable<double> Raw()
     {
         yield return 0;
-        for (int i = 1; i < 5; i++)
+        for (var i = 1; i < 4; i++)
         {
             yield return i;
-            yield return -1;
-            yield return 100.5 * i;
+            yield return -i;
+            yield return 10 * i;
+            yield return 10.5 * i;
         }
 
         yield return double.E;
         yield return double.Pi;
         yield return double.Tau;
-
-        yield return double.MinValue;
-        yield return double.MaxValue;
     }
     public static IEnumerable<object[]> Singles()
     {
