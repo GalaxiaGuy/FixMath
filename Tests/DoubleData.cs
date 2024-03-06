@@ -26,6 +26,14 @@ public static class DoubleData
             yield return [x];
         }
     }
+    
+    public static IEnumerable<object[]> NonNegativeSingles()
+    {
+        foreach (var x in Raw().Where(x => x >= 0))
+        {
+            yield return [x];
+        }
+    }
     public static IEnumerable<object[]> Pairs()
     {
         foreach (var x in Raw())
