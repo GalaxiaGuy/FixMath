@@ -74,4 +74,5 @@ public abstract class IsIntegerTests<T> where T : IFx<T>
     }
 }
 
+public class F32IsIntegerTests : IsIntegerTests<F32> { }
 public class F64IsIntegerTests : IsIntegerTests<F64> { }

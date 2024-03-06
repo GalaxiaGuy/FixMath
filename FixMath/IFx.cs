@@ -16,4 +16,5 @@ public interface IFx<TSelf> where TSelf : IFx<TSelf>
     double Double { get; }
 }
 
+public partial struct F32 : IFx<F32> { }
 public partial struct F64 : IFx<F64> { }

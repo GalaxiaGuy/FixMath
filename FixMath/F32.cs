@@ -31,7 +31,7 @@ namespace GamesWithGravitas.FixMath
     /// Signed 16.16 fixed point value struct.
     /// </summary>
     [Serializable]
-    public struct F32 : IComparable<F32>, IEquatable<F32>, IComparable
+    public partial struct F32 : IComparable<F32>, IEquatable<F32>, IComparable
     {
         // Constants
         public static F32 Neg1      { [MethodImpl(FixedUtil.AggressiveInlining)] get { return FromRaw(Fixed32.Neg1); } }
