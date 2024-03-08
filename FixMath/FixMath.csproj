@@ -6,6 +6,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>GamesWithGravitas.FixMath</RootNamespace>
+
+        <IsPackable>true</IsPackable>
+        <PackageId>GamesWithGravitas.FixMath</PackageId>
+        <PackageVersion>1.0.0-alpha.1</PackageVersion>
+        <Authors>Oliver Brown</Authors>
+        <PackageTags>fixed-point, generic math, numerics</PackageTags>
+        <RepositoryUrl>https://github.com/GalaxiaGuy/FixMath</RepositoryUrl>
     </PropertyGroup>
 
 </Project>
